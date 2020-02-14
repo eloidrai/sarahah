@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr">
+  <head>
+    <meta charset="utf8"/>
+    <title>Site</title>
+  </head>
+  <body>
+    <h1>Bonjour, <%= nom %> </h1>
+    <% if (!nom) { %>
+        <a href="register">S'inscrire</a>
+        <a href="login">Se connecter</a>
+    <% } else { %>
+        <a href="logout">Se déconnecter</a>
+    <% } %>
+  </body>
+</html>
