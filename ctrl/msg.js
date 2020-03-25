@@ -7,11 +7,11 @@ module.exports = {
     msgForm: (req, res)=> {
         db.get(`SELECT * FROM Utilisateurs WHERE nom=?`, [req.params.personne], (err, data)=> {
             if (data) {
-                res.locals = {personne: req.params.personne,nom: req.session.nom, token: req.csrfToken(), ok: req.session.msgOk, lien: "http://"+req.headers['host']+req.url};
+                res.locals = {personne: req.params.personne,nom: req.session.nom, token: req.csrfToken(), ok: req.session.msgOk};
                 req.session.msgOk = 0;
                 res.render("page")
             } else {
-                res.redirect("/home");
+                res.redirect("/");
             }
         })
     },
@@ -24,7 +24,7 @@ module.exports = {
     
     list: (req, res)=> {
         db.all(`SELECT contenu FROM Messages WHERE nom_u=?`, [req.session.nom], (err, data)=> {
-            if (err) return res.redirect("/home");;
+            if (err) return res.redirect("/");;
             res.locals = {
                 nom: req.session.nom,
                 messages: data

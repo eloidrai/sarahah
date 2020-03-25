@@ -6,7 +6,7 @@ const db = new sqlite3.Database("./db/base.db");
 
 module.exports = {
     registerForm: (req, res)=> {
-        if (req.session.nom) return res.redirect("/home");
+        if (req.session.nom) return res.redirect("/");
         res.locals = {
             msg: req.session.msg,
             nom: req.session.nom,
@@ -28,13 +28,13 @@ module.exports = {
                 return res.redirect("/register");
             }
             req.session.nom = req.body.nom;
-            res.redirect("/home");
+            res.redirect("/");
             console.log(req.session.nom + " inscrit.");
         });
     },
     
     loginForm: (req, res)=> {
-        if (req.session.nom) return res.redirect("/home");
+        if (req.session.nom) return res.redirect("/");
         res.locals = {
             msg: req.session.msg,
             nom: req.session.nom,
@@ -62,7 +62,7 @@ module.exports = {
                 if (ok){     
                     req.session.nom = req.body.nom;                 // Connecté
                     console.log(req.session.nom + " connecté.");
-                    return res.redirect("/home");
+                    return res.redirect("/");
                 }
                 req.session.msg = 4;                                // Mot de passe incorrect
                 return res.redirect("/login");
@@ -73,6 +73,6 @@ module.exports = {
     logout: (req, res)=> {
         console.log(req.session.nom + " déconnecté.");
         req.session.nom = undefined;
-        res.redirect("/home");  
+        res.redirect("/");  
     }
 }

@@ -11,8 +11,6 @@ const msg = require("./ctrl/msg");
 
 /*Middlewares*/
 
-//app.use(require("morgan")())
-
 app.set("view engine", "ejs");
 app.set("views", "./views/");
 app.use(express.urlencoded({
@@ -29,8 +27,8 @@ app.use(csurf());
 app.use(helmet());
 
 /*Accueil*/
-app.get("/home", (req, res)=> {
-    res.render("home", {nom: req.session.nom});
+app.get("/", (req, res)=> {
+    res.render("home", {nom: req.session.nom, lien: `http://${req.headers['host']}/page/${req.session.nom}`});
 })
 
 /*Inscription - Connexion -  Deconnexion*/
@@ -48,17 +46,15 @@ app.post("/page/:personne", msg.submit)
 app.get("/list", msg.list)
 
 /*Erreur serveur*/
-/*app.use((err, req, res, next)=>{
+app.use((err, req, res, next)=>{
     res.status(401).end("Erreur serveur, peut-être avez-vous essayé de nous pirater. :(");
-})*/
-
+})
 
 app.use("/public/", express.static("public/"))
 
 /*Page d'erreur*/
 app.use((req, res)=> {
-    res.redirect("/home");
-    //res.end("Erreur 404. Tu t'es perdu");
+    res.redirect("/");
 })
 
 

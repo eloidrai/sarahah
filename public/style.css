@@ -27,13 +27,13 @@ body {
     color: red;
 }
 
-input, textarea, #lienProfil {
+input, textarea, button {
     background: #EEEEEE;
     border: none;
     padding: 6px;
 }
 
-input[type="submit"] {
+input[type="submit"], button {
     background: orange;
 }
 

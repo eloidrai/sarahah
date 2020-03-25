@@ -12,8 +12,16 @@
             <p>Vous l'aurez peut-être reconnu, ce site est un clone Open-Source de <em>Sarahah</em>.
             <p>Il permet à ses utilisateurs de se créer une page pour recevoir des messages anonymes.</p>
       <% if (nom) { %>
-            Voici votre page à partager : <mark><a href="/page/<%=nom%>" target="_blank">lien</a></mark>.
+            Voici votre page à partager :  <input id="a_copier" value="<%= lien %>"/> <button id="btn_copier">Copier</button>. 
       <%}%>
     </section>
+    <script>
+        const champ = document.getElementById("a_copier"), btn = document.getElementById("btn_copier");
+        
+        btn.addEventListener('click', (e)=> {
+            champ.select();
+            document.execCommand("copy");
+        });
+    </script>
   </body>
 </html>
