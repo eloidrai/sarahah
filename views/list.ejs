@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr">
+  <head>
+    <meta charset="utf8"/>
+    <title>Liste de messages</title>
+    <%- include("style.ejs") %>
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <h2>Mes messages</h2>
+    <section id="boite">
+        <% for (const msg of messages) {%>
+            <p class="message"><%= msg.contenu %></p>
+        <% } %>
+    </section>
+  </body>
+</html>

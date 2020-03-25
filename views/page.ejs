@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr">
+  <head>
+    <meta charset="utf8"/>
+    <title>Page de <%= personne %></title>
+    <%- include("style.ejs") %>
+  </head>
+  <body>
+    <%- include("header.ejs") %>
+    <section>
+    <h2>Envoyer un message à <%= personne %></h2>
+        <% if (nom!==personne) { %>
+            <form action="" method="post">
+                <input type="hidden" name="_csrf" value="<%= token %>"/>
+                <textarea name="msg" placeholder="Écrivez ici votre message anonyme..."></textarea><br/>
+                <input type="submit" value="Envoyer"/>
+            </form>
+        <%} else {%>
+            <p>Tu ne vas quand même pas t'envoyer un message à toi même.</p>
+            <p>Partage plutôt ce lien :</p>
+            <span id="lienProfil" ><%=lien%></span>
+        <% } %>
+        <% if (ok) {%>
+            <div class="vert"> Message envoyé :)</div>
+        <%}%>
+    </section>
+  </body>
+</html>

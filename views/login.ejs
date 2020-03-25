@@ -3,15 +3,20 @@
   <head>
     <meta charset="utf8"/>
     <title>Connexion</title>
+    <%- include("style.ejs") %>
   </head>
   <body>
-    <h1>Se connecter</h1>
-    <form method="post" action="/login">
-      <input type="hidden" name="_csrf" value="<%= token %>">
-      <input name="nom" placeholder="Nom"/>
-      <input type="password" name="mdp" placeholder="Mot de passe"/>
-      <input type="submit" value="Valider"/>
-    </form>
-    <p><%= ["", "Formulaire incomplet", "Erreur de la base de données", "N'existe pas", "Mot de passe incorrect"][msg] %></p>
+    <%- include("header.ejs") %>
+
+    <section>
+            <h2>Se connecter</h2>
+        <form method="post" action="/login">
+          <input type="hidden" name="_csrf" value="<%= token %>">
+          <input name="nom" placeholder="Nom"/>
+          <input type="password" name="mdp" placeholder="Mot de passe"/>
+          <input type="submit" value="Valider"/>
+        </form>
+        <p class="err"><%= ["", "Formulaire incomplet", "Erreur de la base de données", "N'existe pas", "Mot de passe incorrect"][msg] %></p>
+    </section>
   </body>
 </html>

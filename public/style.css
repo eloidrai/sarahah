@@ -1,0 +1,72 @@
+header {
+    background-color: gold;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h1 a {
+    color: red !important;
+    text-decoration: none;
+}
+
+h2 {
+    color: green;
+}
+
+a, a:visited {
+    color: blue;
+}
+
+body {
+    background-color: aqua;
+}
+
+.err {
+    color: red;
+}
+
+input, textarea, #lienProfil {
+    background: #EEEEEE;
+    border: none;
+    padding: 6px;
+}
+
+input[type="submit"] {
+    background: orange;
+}
+
+section#boite {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 8px;
+}
+
+p.message {
+    border: solid black 2px;
+    border-radius: 5px;
+    padding: 10px;
+    background: lightgreen;
+}
+
+.vert, h2 {
+    padding: 5px;
+    background: lightgreen;
+    display: inline-block;
+}
+
+.vert {
+    margin-top: 20px;
+    margin-left: 20%;
+}
+
+section {
+    width: 65%;
+    margin: auto;
+}
+
+textarea {
+    width: 80%;
+    height: 200px;    
+}

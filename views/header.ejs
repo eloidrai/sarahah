@@ -1,0 +1,14 @@
+<header>
+    <h1><a href="/home">Messages anonymes</a></h1>
+    <%  if (!nom) { %>
+        <ul>
+            <li><a href="/register">S'inscrire</a></li>
+            <li><a href="/login">Se connecter</a></li>
+        </ul>
+    <% } else { %>
+        <ul>
+            <li><a href="/logout">Se déconnecter</a></li>
+            <li><a href="/list">Voir mes messages</a></li>
+        </ul>
+    <% } %>
+</header>

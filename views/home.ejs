@@ -2,15 +2,18 @@
 <html dir="ltr" lang="fr">
   <head>
     <meta charset="utf8"/>
-    <title>Site</title>
+    <title>Messages anonymes</title>
+    <%- include("style.ejs") %>
   </head>
   <body>
-    <h1>Bonjour, <%= nom %> </h1>
-    <% if (!nom) { %>
-        <a href="register">S'inscrire</a>
-        <a href="login">Se connecter</a>
-    <% } else { %>
-        <a href="logout">Se déconnecter</a>
-    <% } %>
+    <%- include("header.ejs") %>
+    <section>
+        <h2>Bonjour, <strong><%= nom %></strong> </h2>
+            <p>Vous l'aurez peut-être reconnu, ce site est un clone Open-Source de <em>Sarahah</em>.
+            <p>Il permet à ses utilisateurs de se créer une page pour recevoir des messages anonymes.</p>
+      <% if (nom) { %>
+            Voici votre page à partager : <mark><a href="/page/<%=nom%>" target="_blank">lien</a></mark>.
+      <%}%>
+    </section>
   </body>
 </html>
