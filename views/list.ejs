@@ -7,11 +7,13 @@
   </head>
   <body>
     <%- include("header.ejs") %>
-    <h2>Mes messages</h2>
-    <section id="boite">
+    <section>
+        <h2>Mes messages</h2>
+        <div id="boite">
         <% for (const msg of messages) {%>
             <p class="message"><%= msg.contenu %></p>
         <% } %>
+        </div>
     </section>
   </body>
 </html>
