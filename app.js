@@ -19,7 +19,7 @@ app.use(express.urlencoded({
 
 app.use(cookieSession({
     name: "session",
-    secret: "zq1256532we562sx65d526r3gfvh6bg5f56v6c6trdxeryb"
+    secret: "zeyhj74fv54gfr89re4r4rt8grv8rvg8r78956fff84599a9aù*$$*ùg5f56v6zeç_çà_rub"
 }));
 
 app.use(csurf());
@@ -28,7 +28,7 @@ app.use(helmet());
 
 /*Accueil*/
 app.get("/", (req, res)=> {
-    res.render("home", {nom: req.session.nom, lien: `http://${req.headers['host']}/page/${req.session.nom}`});
+    res.render("home", {nom: req.session.nom, lien: `https://${req.headers['host']}/page/${req.session.nom}`});
 })
 
 /*Inscription - Connexion -  Deconnexion*/
