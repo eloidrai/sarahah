@@ -1,14 +1,14 @@
 {
-  "name": "authentification",
+  "name": "Messages anonymes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Un site de message anonymes",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "db": "node create-db.js ",
+    "db": "node create-db.js",
     "test": "nodemon app.js"
   },
-  "author": "",
+  "author": "eloidrai",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.8",
