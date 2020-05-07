@@ -19,7 +19,7 @@ app.use(express.urlencoded({
 
 app.use(cookieSession({
     name: "session",
-    secret: "zeyhj74fv54gfr89re4r4rt8grv8rvg8r78956fff84599a9aù*$$*ùg5f56v6zeç_çà_rub"
+    secret: process.env.SESS_SECRET || 'azerty'
 }));
 
 app.use(csurf());
@@ -58,7 +58,7 @@ app.use((req, res)=> {
 })
 
 
-app.listen(8081, ()=> {
+app.listen(process.env.PORT || 8081, ()=> {
     console.log("Le serveur est en écoute.");
     console.log("Aller à http://localhost:8081/home");
 });
